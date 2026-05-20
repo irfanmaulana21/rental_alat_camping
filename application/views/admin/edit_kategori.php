@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Edit Kategori</title>
+    <meta charset="UTF-8">
+    <title>Edit Kategori</title>
 
-<link rel="stylesheet"
-href="<?= base_url('assets/css/admin/edit_kategori.css'); ?>">
-
+    <link rel="stylesheet"
+          href="<?= base_url('assets/css/admin/edit_kategori.css'); ?>">
 </head>
+
 <body>
 
 <header>
@@ -27,15 +27,11 @@ href="<?= base_url('assets/css/admin/edit_kategori.css'); ?>">
     <nav>
 
         <a href="<?= site_url('admin/dashboard')?>">
-
-        Dashboard
-
+            Dashboard
         </a>
 
         <a class="active">
-
-        Kategori
-
+            Kategori
         </a>
 
     </nav>
@@ -45,63 +41,56 @@ href="<?= base_url('assets/css/admin/edit_kategori.css'); ?>">
 
 <div class="container">
 
-<div class="card">
+    <div class="card">
 
-<h2>Edit Kategori</h2>
+        <h2>Edit Kategori</h2>
 
-<p class="sub">
-Ubah nama kategori alat camping
-</p>
-
-
-<form
-method="POST"
-action="<?= site_url('admin/kategori/update/'.$kategori->id_kategori) ?>">
+        <p class="sub">
+            Ubah nama kategori alat camping
+        </p>
 
 
-<label>Nama Kategori</label>
+        <form
+            method="POST"
+            action="<?= site_url('admin/kategori/update/'.$kategori->id_kategori) ?>">
 
-<input
-class="input"
-type="text"
-name="nama_kategori"
+            <label>Nama Kategori</label>
 
-value="<?= $kategori->nama_kategori ?>"
-
-required>
-
-
-
-<div class="button-group">
-
-<a
-href="<?= site_url('admin/kategori')?>"
-
-class="btn-back">
-
-Batal
-
-</a>
+            <input
+                class="input"
+                type="text"
+                name="nama_kategori"
+                value="<?= $kategori->nama_kategori ?>"
+                required>
 
 
-<button type="submit">
+            <div class="button-group">
 
-Update
+                <a
+                    href="<?= site_url('admin/kategori')?>"
+                    class="btn-back">
 
-</button>
+                    Batal
 
-</div>
+                </a>
 
-</form>
 
-</div>
+                <button type="submit">
+                    Update
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
 
 
 <footer class="footer">
 
-© Sistem Rental Camping
+    © <?= date('Y'); ?> Sistem Rental Alat Camping
 
 </footer>
 

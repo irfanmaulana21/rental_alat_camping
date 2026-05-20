@@ -1,329 +1,293 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Data Alat Camping</title>
+    <meta charset="UTF-8">
+    <title>Data Alat Camping</title>
 
-<link rel="stylesheet" href="<?= base_url('assets/css/admin/alat.css?v='.time()); ?>">
-
-
+    <link rel="stylesheet"
+          href="<?= base_url('assets/css/admin/alat.css?v='.time()); ?>">
 </head>
 
 <body>
 
 <header>
 
-<div class="brand">
+    <div class="brand">
+        <div class="logo">
+            RC
+        </div>
 
-<div class="logo">
-RC
-</div>
+        <div>
+            <h1>Camping Admin</h1>
+        </div>
+    </div>
 
-<div>
-<h1>Camping Admin</h1>
-</div>
+    <nav>
+        <a href="<?= site_url('admin/dashboard')?>">Dashboard</a>
 
-</div>
+        <a href="<?= site_url('admin/kategori')?>">Kategori</a>
 
-<nav>
-
-<a href="<?= site_url('admin/dashboard')?>">Dashboard</a>
-
-<a href="<?= site_url('admin/kategori')?>">Kategori</a>
-
-<a class="active">
-Alat
-</a>
-
-</nav>
+        <a class="active">
+            Alat
+        </a>
+    </nav>
 
 </header>
 
 
 <div class="container">
 
-<h2>Manajemen Alat Camping</h2>
+    <h2>Manajemen Alat Camping</h2>
 
-<?= validation_errors('<div class="error">','</div>'); ?>
+    <?= validation_errors('<div class="error">','</div>'); ?>
 
+    <div class="flex-row">
 
-<div class="flex-row">
+        <!-- FORM TAMBAH -->
+        <div class="form form-alat">
 
+            <h4>Tambah Data</h4>
 
-<!-- FORM TAMBAH -->
+            <form
+                method="POST"
+                action="<?= site_url('admin/alat/store')?>"
+                enctype="multipart/form-data">
 
-<div class="form form-alat">
+                <label>Kategori</label>
 
-<h4>Tambah Data</h4>
+                <select class="input"
+                        name="id_kategori"
+                        required>
 
-<form
-method="POST"
-action="<?= site_url('admin/alat/store')?>"
-enctype="multipart/form-data">
+                    <option value="">
+                        Pilih kategori
+                    </option>
 
-<label>Kategori</label>
+                    <?php foreach($kategori as $k): ?>
 
-<select class="input"
-name="id_kategori"
-required>
+                        <option value="<?= $k->id_kategori ?>">
+                            <?= $k->nama_kategori ?>
+                        </option>
 
-<option value="">
-Pilih kategori
-</option>
+                    <?php endforeach; ?>
 
-<?php foreach($kategori as $k): ?>
+                </select>
 
-<option value="<?= $k->id_kategori ?>">
 
-<?= $k->nama_kategori ?>
+                <label>Nama Alat</label>
 
-</option>
+                <input
+                    class="input"
+                    type="text"
+                    name="nama_alat">
 
-<?php endforeach; ?>
 
-</select>
+                <label>Merk</label>
 
+                <input
+                    class="input"
+                    type="text"
+                    name="merk">
 
 
-<label>Nama Alat</label>
+                <div class="row">
 
-<input
-class="input"
-type="text"
-name="nama_alat">
+                    <div>
 
+                        <label>Stok</label>
 
+                        <input
+                            class="input"
+                            type="number"
+                            name="stok">
 
-<label>Merk</label>
+                    </div>
 
-<input
-class="input"
-type="text"
-name="merk">
+                    <div>
 
+                        <label>Harga</label>
 
+                        <input
+                            class="input"
+                            type="number"
+                            name="harga_sewa">
 
-<div class="row">
+                    </div>
 
-<div>
+                </div>
 
-<label>Stok</label>
 
-<input
-class="input"
-type="number"
-name="stok">
+                <label>Status</label>
 
-</div>
+                <select class="input"
+                        name="status">
 
+                    <option value="Tersedia">
+                        Tersedia
+                    </option>
 
-<div>
+                    <option value="Disewa">
+                        Disewa
+                    </option>
 
-<label>Harga</label>
+                    <option value="Belum Tersedia">
+                        Belum Tersedia
+                    </option>
 
-<input
-class="input"
-type="number"
-name="harga_sewa">
+                </select>
 
-</div>
 
-</div>
+                <label>Upload Gambar</label>
 
+                <input
+                    class="input"
+                    type="file"
+                    name="gambar">
 
-<label>Status</label>
 
-<select class="input"
-name="status">
+                <label>Deskripsi</label>
 
-<option value="Tersedia">
-Tersedia
-</option>
+                <textarea
+                    class="input"
+                    name="deskripsi"></textarea>
 
-<option value="Disewa">
-Disewa
-</option>
 
-<option value="Belum Tersedia">
-Belum Tersedia
-</option>
+                <button type="submit">
+                    + Tambah Data
+                </button>
 
-</select>
+            </form>
 
+        </div>
 
 
-<label>Upload Gambar</label>
+        <!-- TABEL -->
+        <div class="flex-1">
 
-<input
-class="input"
-type="file"
-name="gambar">
+            <div class="table">
 
+                <h4>Daftar Alat</h4>
 
-<label>Deskripsi</label>
+                <table>
 
-<textarea
-class="input"
-name="deskripsi">
-</textarea>
+                    <tr>
+                        <th>No</th>
+                        <th>Foto</th>
+                        <th>Nama</th>
+                        <th>Merk</th>
+                        <th>Stok</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
 
+                    <?php
+                    $no = 1;
+                    foreach($alat as $a):
+                    ?>
 
-<button type="submit">
+                    <tr>
 
-+ Tambah Data
+                        <td><?= $no++ ?></td>
 
-</button>
+                        <td>
 
-</form>
+                            <?php if($a->gambar): ?>
 
-</div>
+                                <img src="<?= base_url('assets/image/alat/'.$a->gambar) ?>">
 
+                            <?php endif; ?>
 
+                        </td>
 
-<!-- TABEL -->
 
-<div class="flex-1">
+                        <td>
 
-<div class="table">
+                            <b>
+                                <?= $a->nama_alat ?>
+                            </b>
 
-<h4>Daftar Alat</h4>
+                            <br>
 
-<table>
+                            <small>
+                                Rp<?= number_format($a->harga_sewa) ?>
+                            </small>
 
-<tr>
+                        </td>
 
-<th>No</th>
-<th>Foto</th>
-<th>Nama</th>
-<th>Merk</th>
-<th>Stok</th>
-<th>Status</th>
-<th>Aksi</th>
 
-</tr>
+                        <td>
+                            <?= $a->merk ?>
+                        </td>
 
+                        <td>
+                            <?= $a->stok ?>
+                        </td>
 
-<?php
-$no=1;
-foreach($alat as $a):
-?>
 
-<tr>
+                        <td>
 
-<td><?= $no++ ?></td>
+                            <?php if($a->status=="Tersedia"): ?>
 
+                                <span class="tersedia">
+                                    Tersedia
+                                </span>
 
-<td>
+                            <?php elseif($a->status=="Disewa"): ?>
 
-<?php if($a->gambar): ?>
+                                <span class="disewa">
+                                    Disewa
+                                </span>
 
-<img
-src="<?= base_url('assets/image/alat/'.$a->gambar) ?>">
+                            <?php else: ?>
 
-<?php endif; ?>
+                                <span class="belum">
+                                    Belum Tersedia
+                                </span>
 
-</td>
+                            <?php endif; ?>
 
+                        </td>
 
-<td>
 
-<b>
+                        <td>
 
-<?= $a->nama_alat ?>
+                            <a
+                                class="edit"
+                                href="<?= site_url('admin/alat/edit/'.$a->id_alat) ?>">
 
-</b>
+                                Edit
 
-<br>
+                            </a>
 
-<small>
 
-Rp<?= number_format($a->harga_sewa) ?>
+                            <a
+                                class="hapus"
+                                onclick="return confirm('hapus data?')"
+                                href="<?= site_url('admin/alat/delete/'.$a->id_alat) ?>">
 
-</small>
+                                Hapus
 
-</td>
+                            </a>
 
+                        </td>
 
-<td>
+                    </tr>
 
-<?= $a->merk ?>
+                    <?php endforeach; ?>
 
-</td>
+                </table>
 
+            </div>
 
-<td>
+        </div>
 
-<?= $a->stok ?>
-
-</td>
-
-
-<td>
-
-<?php if($a->status=="Tersedia"): ?>
-
-<span class="tersedia">
-Tersedia
-</span>
-
-<?php elseif($a->status=="Disewa"): ?>
-
-<span class="disewa">
-Disewa
-</span>
-
-<?php else: ?>
-
-<span class="belum">
-Belum Tersedia
-</span>
-
-<?php endif; ?>
-
-</td>
-
-
-<td>
-
-<a
-class="edit"
-href="<?= site_url('admin/alat/edit/'.$a->id_alat) ?>">
-
-Edit
-
-</a>
-
-
-<a
-class="hapus"
-onclick="return confirm('hapus data?')"
-href="<?= site_url('admin/alat/delete/'.$a->id_alat) ?>">
-
-Hapus
-
-</a>
-
-</td>
-
-</tr>
-
-<?php endforeach; ?>
-
-</table>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
 
 <footer class="footer">
-
-© Sistem Rental Camping
-
+    © <?= date('Y'); ?> Sistem Rental Alat Camping
 </footer>
 
 </body>

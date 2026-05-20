@@ -1,8 +1,4 @@
-/* =============================================
-   CampRent – Alat Camping Page CSS
-   Consistent with home.css forest-green theme
-   Font: Playfair Display + DM Sans
-   ============================================= */
+/* Alat Camping CSS */
 
 :root {
     --green-dark:   #1B4332;
@@ -37,9 +33,7 @@ body {
 
 em { font-style: italic; }
 
-/* =============================================
-   NAVBAR
-   ============================================= */
+/* NAVBAR */
 .navbar {
     position: sticky;
     top: 0;
@@ -110,9 +104,7 @@ em { font-style: italic; }
     border-radius: 99px;
 }
 
-/* =============================================
-   PAGE HEADER
-   ============================================= */
+/* PAGE HEADER*/
 .page-header {
     background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
     padding: 48px 5% 56px;
@@ -227,9 +219,7 @@ em { font-style: italic; }
 .search-clear:hover { color: white; }
 .search-clear.visible { display: block; }
 
-/* =============================================
-   FILTER BAR
-   ============================================= */
+/* FILTER BAR */
 .filter-bar {
     background: white;
     border-bottom: 1px solid #f0f0f0;
@@ -285,9 +275,7 @@ em { font-style: italic; }
     border-radius: 50%;
 }
 
-/* =============================================
-   CONTAINER & GRID
-   ============================================= */
+/* CONTAINER & GRID */
 .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -300,9 +288,7 @@ em { font-style: italic; }
     gap: 24px;
 }
 
-/* =============================================
-   PRODUCT CARD
-   ============================================= */
+/* PRODUCT CARD*/
 .product-card {
     background: white;
     border-radius: var(--radius-lg);
@@ -503,9 +489,7 @@ font-weight:bold;
 display:inline-block;
 }
 
-/* =============================================
-   NOT FOUND
-   ============================================= */
+/* NOT FOUND */
 .not-found {
     padding: 80px 20px;
     text-align: center;
@@ -555,9 +539,7 @@ display:inline-block;
 
 .btn-reset:hover { background: #b7e4c7; }
 
-/* =============================================
-   FOOTER MINI
-   ============================================= */
+/* FOOTER MINI */
 .footer-mini {
     text-align: center;
     padding: 24px;
@@ -566,9 +548,7 @@ display:inline-block;
     font-size: 13px;
 }
 
-/* =============================================
-   RESPONSIVE
-   ============================================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .page-header-inner {
         flex-direction: column;

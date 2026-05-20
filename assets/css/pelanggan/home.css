@@ -1,8 +1,4 @@
-/* =============================================
-   CampRent – Home Page CSS (Upgraded)
-   Font: Playfair Display + DM Sans
-   Theme: Forest / Outdoor Adventure
-   ============================================= */
+/* HomeCSS */
 
 :root {
     --green-dark:   #1B4332;
@@ -36,9 +32,7 @@ body {
 
 em { font-style: italic; }
 
-/* =============================================
-   NAVBAR
-   ============================================= */
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -204,9 +198,7 @@ em { font-style: italic; }
 
 .mobile-logout { color: #c0392b !important; }
 
-/* =============================================
-   HERO
-   ============================================= */
+/* HERO */
 .hero {
     position: relative;
     height: 100vh;
@@ -405,9 +397,7 @@ em { font-style: italic; }
     margin-top: 2px;
 }
 
-/* =============================================
-   FEATURES
-   ============================================= */
+/* FEATURES */
 .features-section {
     padding: 90px 5%;
     max-width: 1200px;
@@ -487,9 +477,7 @@ em { font-style: italic; }
     line-height: 1.7;
 }
 
-/* =============================================
-   CONTENT SECTIONS
-   ============================================= */
+/* CONTENT SECTIONS */
 .content-section {
     display: flex;
     align-items: center;
@@ -625,9 +613,7 @@ em { font-style: italic; }
     font-weight: 600;
 }
 
-/* =============================================
-   CTA BANNER
-   ============================================= */
+/* CTA BANNER */
 .cta-banner {
     padding: 0 5%;
     margin: 40px auto 80px;
@@ -681,9 +667,7 @@ em { font-style: italic; }
     line-height: 1.7;
 }
 
-/* =============================================
-   FOOTER
-   ============================================= */
+/* FOOTER */
 .footer {
     background: var(--green-dark);
     padding: 36px 5%;
@@ -734,9 +718,7 @@ em { font-style: italic; }
     color: var(--green-light);
 }
 
-/* =============================================
-   RESPONSIVE
-   ============================================= */
+/* RESPONSIVE */
 @media (max-width: 900px) {
     .features-grid {
         grid-template-columns: 1fr;

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Edit Alat</title>
-<link rel="stylesheet" href="<?= base_url('assets/css/admin/edit_alat.css'); ?>">
+    <meta charset="UTF-8">
+    <title>Edit Alat</title>
+
+    <link rel="stylesheet"
+          href="<?= base_url('assets/css/admin/edit_alat.css'); ?>">
 </head>
+
 <body>
 
 <header>
@@ -12,7 +15,7 @@
     <div class="brand">
 
         <div class="logo">
-        RC
+            RC
         </div>
 
         <div>
@@ -23,11 +26,15 @@
 
     <nav>
 
-        <a href="<?= site_url('admin/dashboard')?>">Dashboard</a>
+        <a href="<?= site_url('admin/dashboard')?>">
+            Dashboard
+        </a>
 
         <a href="<?= site_url('admin/alat')?>"
-        class="active">
-        Alat
+           class="active">
+
+            Alat
+
         </a>
 
     </nav>
@@ -37,176 +44,192 @@
 
 <div class="container">
 
-<div class="edit-card">
+    <div class="edit-card">
 
-<h2>Edit Data Alat</h2>
+        <h2>Edit Data Alat</h2>
 
-<form method="POST"
-action="<?= site_url('admin/alat/update/'.$alat->id_alat) ?>"
-enctype="multipart/form-data">
+        <form
+            method="POST"
+            action="<?= site_url('admin/alat/update/'.$alat->id_alat) ?>"
+            enctype="multipart/form-data">
 
 
-<label>Kategori</label>
+            <label>Kategori</label>
 
-<select class="input"
-name="id_kategori"
-required>
+            <select
+                class="input"
+                name="id_kategori"
+                required>
 
-<?php foreach($kategori as $k): ?>
+                <?php foreach($kategori as $k): ?>
 
-<option value="<?= $k->id_kategori?>"
+                    <option
+                        value="<?= $k->id_kategori?>"
 
-<?= $alat->id_kategori==$k->id_kategori
-?'selected':'' ?>>
+                        <?= $alat->id_kategori==$k->id_kategori
+                        ? 'selected' : '' ?>>
 
-<?= $k->nama_kategori?>
+                        <?= $k->nama_kategori?>
 
-</option>
+                    </option>
 
-<?php endforeach;?>
+                <?php endforeach; ?>
 
-</select>
+            </select>
 
 
 
-<label>Nama Alat</label>
+            <label>Nama Alat</label>
 
-<input
-class="input"
-type="text"
-name="nama_alat"
-value="<?= $alat->nama_alat ?>"
-required>
+            <input
+                class="input"
+                type="text"
+                name="nama_alat"
+                value="<?= $alat->nama_alat ?>"
+                required>
 
 
 
-<label>Merk</label>
+            <label>Merk</label>
 
-<input
-class="input"
-type="text"
-name="merk"
-value="<?= $alat->merk ?>"
-required>
+            <input
+                class="input"
+                type="text"
+                name="merk"
+                value="<?= $alat->merk ?>"
+                required>
 
 
 
-<div class="row">
+            <div class="row">
 
-<div>
+                <div>
 
-<label>Stok</label>
+                    <label>Stok</label>
 
-<input
-class="input"
-type="number"
-name="stok"
-value="<?= $alat->stok ?>"
-required>
+                    <input
+                        class="input"
+                        type="number"
+                        name="stok"
+                        value="<?= $alat->stok ?>"
+                        required>
 
-</div>
+                </div>
 
 
-<div>
+                <div>
 
-<label>Harga</label>
+                    <label>Harga</label>
 
-<input
-class="input"
-type="number"
-name="harga_sewa"
-value="<?= $alat->harga_sewa ?>"
-required>
+                    <input
+                        class="input"
+                        type="number"
+                        name="harga_sewa"
+                        value="<?= $alat->harga_sewa ?>"
+                        required>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<label>Status</label>
 
-<select class="input" name="status" required>
+            <label>Status</label>
 
-<option value="Tersedia"
-<?= $alat->status=='Tersedia'?'selected':'' ?>>
-Tersedia
-</option>
+            <select
+                class="input"
+                name="status"
+                required>
 
-<option value="Disewa"
-<?= $alat->status=='Disewa'?'selected':'' ?>>
-Disewa
-</option>
+                <option
+                    value="Tersedia"
+                    <?= $alat->status=='Tersedia'?'selected':'' ?>>
 
-<option value="Belum Tersedia"
-<?= $alat->status=='Belum Tersedia'?'selected':'' ?>>
-Belum Tersedia
-</option>
+                    Tersedia
 
-</select>
+                </option>
 
 
-<label>Deskripsi</label>
+                <option
+                    value="Disewa"
+                    <?= $alat->status=='Disewa'?'selected':'' ?>>
 
-<textarea
-class="input"
-name="deskripsi"><?= $alat->deskripsi ?>
-</textarea>
+                    Disewa
 
+                </option>
 
 
-<label>Gambar Saat Ini</label>
+                <option
+                    value="Belum Tersedia"
+                    <?= $alat->status=='Belum Tersedia'?'selected':'' ?>>
 
-<div class="preview-box">
+                    Belum Tersedia
 
-<?php if(!empty($alat->gambar)): ?>
+                </option>
 
-<img src="<?= base_url('assets/image/alat/'.$alat->gambar) ?>">
+            </select>
 
-<?php else: ?>
 
-<p>Tidak ada gambar</p>
+            <label>Deskripsi</label>
 
-<?php endif; ?>
+            <textarea
+                class="input"
+                name="deskripsi"><?= $alat->deskripsi ?></textarea>
 
-</div>
 
+            <label>Gambar Saat Ini</label>
 
+            <div class="preview-box">
 
-<label>Ganti Gambar</label>
+                <?php if(!empty($alat->gambar)): ?>
 
-<input
-class="input"
-type="file"
-name="gambar">
+                    <img src="<?= base_url('assets/image/alat/'.$alat->gambar) ?>">
 
+                <?php else: ?>
 
-<div class="btn-group">
+                    <p>Tidak ada gambar</p>
 
-<a href="<?= site_url('admin/alat')?>"
-class="btn-back">
+                <?php endif; ?>
 
-Batal
+            </div>
 
-</a>
 
+            <label>Ganti Gambar</label>
 
-<button type="submit">
+            <input
+                class="input"
+                type="file"
+                name="gambar">
 
-Update Data
 
-</button>
+            <div class="btn-group">
 
-</div>
+                <a
+                    href="<?= site_url('admin/alat')?>"
+                    class="btn-back">
 
-</form>
+                    Batal
 
-</div>
+                </a>
+
+
+                <button type="submit">
+
+                    Update Data
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
 
 
 <footer class="footer">
 
-© Sistem Rental Camping
+    © <?=date('Y')?> Sistem Rental Camping
 
 </footer>
 

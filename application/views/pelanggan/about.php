@@ -26,10 +26,10 @@
     <div class="about-card" data-aos="fade-up">
         <h2>Anggota Kelompok</h2>
         <ul>
-            <li>Nama 1 - Ketua Kelompok</li>
-            <li>Nama 2 - Anggota</li>
-            <li>Nama 3 - Anggota</li>
-            <li>Nama 4 - Anggota</li>
+            <li>Nama - IRFAN MAULANA</li>
+            <li>Nama - KRISNA PRIYA</li>
+            <li>Nama - SULTAN YUDISTIRA</li>
+            <li>Nama - NAUFAL MUFLIH</li>
         </ul>
     </div>
 

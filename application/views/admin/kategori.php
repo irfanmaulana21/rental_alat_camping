@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Kelola Kategori</title>
-<link rel="stylesheet" href="<?= base_url('/assets/css/admin/kategori.css'); ?>">
+    <meta charset="UTF-8">
+    <title>Kelola Kategori</title>
+
+    <link rel="stylesheet"
+          href="<?= base_url('/assets/css/admin/kategori.css'); ?>">
 </head>
+
 <body>
 
 <header>
@@ -23,8 +26,13 @@
 
     <nav>
 
-        <a href="<?= site_url('admin/dashboard')?>">Dashboard</a>
-        <a href="<?= site_url('admin/alat')?>">Alat</a>
+        <a href="<?= site_url('admin/dashboard')?>">
+            Dashboard
+        </a>
+
+        <a href="<?= site_url('admin/alat')?>">
+            Alat
+        </a>
 
         <a class="active">
             Kategori
@@ -37,146 +45,139 @@
 
 <div class="container">
 
-<h2>Manajemen Kategori</h2>
+    <h2>Manajemen Kategori</h2>
 
 
-<!-- FLASH -->
+    <!-- FLASH -->
 
-<?php if($this->session->flashdata('error')): ?>
+    <?php if($this->session->flashdata('error')): ?>
 
-<div class="flash-error">
+        <div class="flash-error">
 
-<?= $this->session->flashdata('error'); ?>
+            <?= $this->session->flashdata('error'); ?>
 
-</div>
+        </div>
 
-<?php endif;?>
-
-
-<?php if($this->session->flashdata('success')): ?>
-
-<div class="flash-success">
-
-<?= $this->session->flashdata('success'); ?>
-
-</div>
-
-<?php endif;?>
+    <?php endif; ?>
 
 
-<div class="flex-row">
+    <?php if($this->session->flashdata('success')): ?>
+
+        <div class="flash-success">
+
+            <?= $this->session->flashdata('success'); ?>
+
+        </div>
+
+    <?php endif; ?>
 
 
-<!-- FORM -->
-
-<div class="form">
-
-<h4>Tambah Kategori</h4>
-
-<form
-method="POST"
-action="<?= site_url('admin/kategori/store')?>">
-
-<label>Nama Kategori</label>
-
-<input
-class="input"
-type="text"
-name="nama_kategori"
-placeholder="Masukkan kategori"
-required>
-
-<button type="submit">
-
-+ Tambah
-
-</button>
-
-</form>
-
-</div>
+    <div class="flex-row">
 
 
+        <!-- FORM -->
 
-<!-- TABLE -->
+        <div class="form">
 
-<div class="flex-1">
+            <h4>Tambah Kategori</h4>
 
-<div class="table">
+            <form
+                method="POST"
+                action="<?= site_url('admin/kategori/store')?>">
 
-<h4>Daftar Kategori</h4>
+                <label>Nama Kategori</label>
 
-<table>
+                <input
+                    class="input"
+                    type="text"
+                    name="nama_kategori"
+                    placeholder="Masukkan kategori"
+                    required>
 
-<tr>
+                <button type="submit">
+                    + Tambah
+                </button>
 
-<th>No</th>
-<th>Nama Kategori</th>
-<th>Aksi</th>
+            </form>
 
-</tr>
-
-
-<?php
-$no=1;
-foreach($kategori as $k):
-?>
-
-<tr>
-
-<td>
-<?= $no++ ?>
-</td>
-
-<td>
-
-<?= $k->nama_kategori?>
-
-</td>
+        </div>
 
 
-<td>
+        <!-- TABLE -->
 
-<a class="edit"
-href="<?= site_url('admin/kategori/edit/'.$k->id_kategori) ?>">
+        <div class="flex-1">
 
-Edit
+            <div class="table">
 
-</a>
+                <h4>Daftar Kategori</h4>
 
+                <table>
 
-<a
-class="hapus"
-onclick="return confirm('Hapus data?')"
+                    <tr>
 
-href="<?= site_url('admin/kategori/delete/'.$k->id_kategori) ?>">
+                        <th>No</th>
+                        <th>Nama Kategori</th>
+                        <th>Aksi</th>
 
-Hapus
-
-</a>
+                    </tr>
 
 
-</td>
+                    <?php
+                    $no = 1;
+                    foreach($kategori as $k):
+                    ?>
 
-</tr>
+                    <tr>
 
-<?php endforeach;?>
+                        <td>
+                            <?= $no++ ?>
+                        </td>
+
+                        <td>
+                            <?= $k->nama_kategori ?>
+                        </td>
 
 
-</table>
+                        <td>
 
-</div>
+                            <a
+                                class="edit"
+                                href="<?= site_url('admin/kategori/edit/'.$k->id_kategori) ?>">
 
-</div>
+                                Edit
 
-</div>
+                            </a>
+
+
+                            <a
+                                class="hapus"
+                                onclick="return confirm('Hapus data?')"
+                                href="<?= site_url('admin/kategori/delete/'.$k->id_kategori) ?>">
+
+                                Hapus
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    <?php endforeach; ?>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 
 <footer class="footer">
 
-© Sistem Rental Camping
+    © <?= date('Y'); ?> Sistem Rental Camping
 
 </footer>
 
