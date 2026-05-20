@@ -1,0 +1,135 @@
+/* CampRent Login UI (Clean Version) */
+
+:root {
+    --green-dark: #1B4332;
+    --green-mid: #2D6A4F;
+    --green-light: #52B788;
+    --green-pale: #D8F3DC;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+body {
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    background: url("../../image/bener/bener.jpeg") no-repeat center center;
+    background-size: cover;
+}
+
+/* CENTER */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* CARD GLASS */
+.card {
+    width: 360px;
+
+    /* transparan ringan */
+    background: rgba(255, 255, 255, 0.6);
+
+    padding: 36px 30px;
+    border-radius: 18px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    /* HAPUS blur */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* glow */
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 120px;
+    height: 120px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    filter: blur(30px);
+}
+
+/* TEXT */
+.card h2 {
+    font-size: 22px;
+    color: var(--green-dark);
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 18px;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0;
+    border-radius: 12px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: var(--green-light);
+    box-shadow: 0 0 0 3px rgba(82,183,136,0.15);
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, var(--green-light), var(--green-mid));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 10px 25px rgba(82,183,136,0.25);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* LINK */
+.card a {
+    color: var(--green-mid);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+        padding: 28px 20px;
+    }
+}

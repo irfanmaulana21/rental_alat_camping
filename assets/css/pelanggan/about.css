@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+
+    background: linear-gradient(135deg, #d8f3dc, #f1faee, #c7f9cc);
+    min-height: 100vh;
+}
+
+/* container */
+.about-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 35px;
+
+    /* transparan tanpa blur */
+    background: rgba(255, 255, 255, 0.75);
+
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* judul */
+.about-container h1 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    color: #1b4332;
+    margin-bottom: 10px;
+}
+
+/* subtitle */
+.subtitle {
+    text-align: center;
+    color: #5c677d;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+/* card */
+.about-card {
+    background: rgba(255, 255, 255, 0.65); /* transparan */
+    padding: 24px 26px;
+    margin-bottom: 18px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+
+    transition: all 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* judul card */
+.about-card h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #2d6a4f;
+    position: relative;
+    padding-left: 12px;
+}
+
+/* garis kecil */
+.about-card h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 4px;
+    height: 75%;
+    background: #40916c;
+    border-radius: 4px;
+}
+
+/* list */
+.about-card ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.about-card ul li {
+    margin-bottom: 8px;
+    color: #495057;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* tombol kembali */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    padding: 10px 18px;
+    background: rgba(45, 106, 79, 0.9);
+    color: white;
+
+    text-decoration: none;
+    border-radius: 10px;
+
+    font-weight: 600;
+    transition: 0.3s ease;
+    box-shadow: 0 6px 15px rgba(45, 106, 79, 0.25);
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    background: rgba(27, 67, 50, 0.95);
+    box-shadow: 0 10px 25px rgba(45, 106, 79, 0.35);
+}
+
+html {
+    scroll-behavior: smooth;
+}
