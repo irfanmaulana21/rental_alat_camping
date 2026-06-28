@@ -1,294 +1,107 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Data Alat Camping</title>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-    <link rel="stylesheet"
-          href="<?= base_url('assets/css/admin/alat.css?v='.time()); ?>">
-</head>
+class Alat extends CI_Controller {
 
-<body>
+    public function __construct()
+    {
+        parent::__construct();
 
-<header>
+        // cek login
+        if (!$this->session->userdata('login')) {
+            redirect('pelanggan/login');
+        }
 
-    <div class="brand">
-        <div class="logo">
-            RC
-        </div>
+        $this->load->model('Alat_model');
+    }
 
-        <div>
-            <h1>Camping Admin</h1>
-        </div>
-    </div>
+    // HALAMAN UTAMA
+    public function index()
+    {
+        $data = [
+            'alat' => $this->Alat_model->getLimit(6, 0),
+            'kategori' => $this->Alat_model->getKategori(),
+            'activeKategori' => 0
+        ];
 
-    <nav>
-        <a href="<?= site_url('admin/dashboard')?>">Dashboard</a>
+        $this->load->view('pelanggan/alat', $data);
+    }
 
-        <a href="<?= site_url('admin/kategori')?>">Kategori</a>
+    // FILTER KATEGORI
+    public function filter($id_kategori = 0)
+    {
+        if ($id_kategori == 0) {
+            $alat = $this->Alat_model->getLimit(6, 0);
+        } else {
+            $alat = $this->Alat_model->getByKategori($id_kategori);
+        }
 
-        <a class="active">
-            Alat
-        </a>
-    </nav>
+        $data = [
+            'alat' => $alat,
+            'kategori' => $this->Alat_model->getKategori(),
+            'activeKategori' => $id_kategori
+        ];
 
-</header>
+        $this->load->view('pelanggan/alat', $data);
+    }
 
+    // HALAMAN DETAIL ALAT
+    public function detail($id = null)
+    {
+        if ($id === null) {
+            show_404();
+        }
 
-<div class="container">
+        $alat = $this->Alat_model->getDetail($id);
 
-    <h2>Manajemen Alat Camping</h2>
+        if (!$alat) {
+            show_404();
+        }
 
-    <?= validation_errors('<div class="error">','</div>'); ?>
+        $data = [
+            'alat'     => $alat,
+            'kategori' => $this->Alat_model->getKategori()
+        ];
 
-    <div class="flex-row">
+        $this->load->view('pelanggan/detail', $data);
+    }
 
-        <!-- FORM TAMBAH -->
-        <div class="form form-alat">
+    //INFINITE SCROLL
+    public function load_more($offset = 0)
+    {
+        $limit = 6;
 
-            <h4>Tambah Data</h4>
+        $alat = $this->Alat_model->getLimit($limit, $offset);
 
-            <form
-                method="POST"
-                action="<?= site_url('admin/alat/store')?>"
-                enctype="multipart/form-data">
+        if (empty($alat)) {
+            return;
+        }
 
-                <label>Kategori</label>
+        foreach ($alat as $a) {
 
-                <select class="input"
-                        name="id_kategori"
-                        required>
+            $img = base_url('assets/image/alat/' . $a->gambar);
+            $harga = number_format($a->harga_sewa, 0, ',', '.');
 
-                    <option value="">
-                        Pilih kategori
-                    </option>
+            echo '
+            <div class="card product-card" data-name="' . strtolower($a->nama_alat) . '">
 
-                    <?php foreach($kategori as $k): ?>
-
-                        <option value="<?= $k->id_kategori ?>">
-                            <?= $k->nama_kategori ?>
-                        </option>
-
-                    <?php endforeach; ?>
-
-                </select>
-
-
-                <label>Nama Alat</label>
-
-                <input
-                    class="input"
-                    type="text"
-                    name="nama_alat">
-
-
-                <label>Merk</label>
-
-                <input
-                    class="input"
-                    type="text"
-                    name="merk">
-
-
-                <div class="row">
-
-                    <div>
-
-                        <label>Stok</label>
-
-                        <input
-                            class="input"
-                            type="number"
-                            name="stok">
-
-                    </div>
-
-                    <div>
-
-                        <label>Harga</label>
-
-                        <input
-                            class="input"
-                            type="number"
-                            name="harga_sewa">
-
-                    </div>
-
+                <div class="img-box">
+                    <img src="' . $img . '" alt="' . $a->nama_alat . '">
                 </div>
 
-
-                <label>Status</label>
-
-                <select class="input"
-                        name="status">
-
-                    <option value="Tersedia">
-                        Tersedia
-                    </option>
-
-                    <option value="Disewa">
-                        Disewa
-                    </option>
-
-                    <option value="Belum Tersedia">
-                        Belum Tersedia
-                    </option>
-
-                </select>
-
-
-                <label>Upload Gambar</label>
-
-                <input
-                    class="input"
-                    type="file"
-                    name="gambar">
-
-
-                <label>Deskripsi</label>
-
-                <textarea
-                    class="input"
-                    name="deskripsi"></textarea>
-
-
-                <button type="submit">
-                    + Tambah Data
-                </button>
-
-            </form>
-
-        </div>
-
-
-        <!-- TABEL -->
-        <div class="flex-1">
-
-            <div class="table">
-
-                <h4>Daftar Alat</h4>
-
-                <table>
-
-                    <tr>
-                        <th>No</th>
-                        <th>Foto</th>
-                        <th>Nama</th>
-                        <th>Merk</th>
-                        <th>Stok</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-
-                    <?php
-                    $no = 1;
-                    foreach($alat as $a):
-                    ?>
-
-                    <tr>
-
-                        <td><?= $no++ ?></td>
-
-                        <td>
-
-                            <?php if($a->gambar): ?>
-
-                                <img src="<?= base_url('assets/image/alat/'.$a->gambar) ?>">
-
-                            <?php endif; ?>
-
-                        </td>
-
-
-                        <td>
-
-                            <b>
-                                <?= $a->nama_alat ?>
-                            </b>
-
-                            <br>
-
-                            <small>
-                                Rp<?= number_format($a->harga_sewa) ?>
-                            </small>
-
-                        </td>
-
-
-                        <td>
-                            <?= $a->merk ?>
-                        </td>
-
-                        <td>
-                            <?= $a->stok ?>
-                        </td>
-
-
-                        <td>
-
-                            <?php if($a->status=="Tersedia"): ?>
-
-                                <span class="tersedia">
-                                    Tersedia
-                                </span>
-
-                            <?php elseif($a->status=="Disewa"): ?>
-
-                                <span class="disewa">
-                                    Disewa
-                                </span>
-
-                            <?php else: ?>
-
-                                <span class="belum">
-                                    Belum Tersedia
-                                </span>
-
-                            <?php endif; ?>
-
-                        </td>
-
-
-                        <td>
-
-                            <a
-                                class="edit"
-                                href="<?= site_url('admin/alat/edit/'.$a->id_alat) ?>">
-
-                                Edit
-
-                            </a>
-
-
-                            <a
-                                class="hapus"
-                                onclick="return confirm('hapus data?')"
-                                href="<?= site_url('admin/alat/delete/'.$a->id_alat) ?>">
-
-                                Hapus
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                    <?php endforeach; ?>
-
-                </table>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<footer class="footer">
-    © <?= date('Y'); ?> Sistem Rental Alat Camping
-</footer>
-
-</body>
-</html>
+                <div class="card-body">
+                    <h3>' . $a->nama_alat . '</h3>
+
+                    <p class="price">
+                        Rp ' . $harga . ' / hari
+                    </p>
+
+                    <a href="' . base_url('index.php/pelanggan/alat/detail/' . $a->id_alat) . '" class="btn-rent" style="text-decoration:none">
+                        SEWA SEKARANG
+                    </a>
+                </div>
+
+            </div>';
+        }
+    }
+}

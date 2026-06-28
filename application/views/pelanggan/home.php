@@ -23,6 +23,7 @@
             <a href="<?= base_url('index.php/pelanggan/home'); ?>" class="nav-link active">Home</a>
             <a href="<?= base_url('index.php/pelanggan/about'); ?>" class="nav-link">About</a>
             <a href="<?= base_url('index.php/pelanggan/alat'); ?>" class="nav-link">Alat</a>
+            <a href="<?= base_url('index.php/pelanggan/pemesanan/riwayat'); ?>" class="nav-link">Pesanan Saya</a>
             <div class="nav-divider"></div>
             <span class="welcome-chip">
                 <span class="welcome-dot"></span>
@@ -41,6 +42,7 @@
 <div class="mobile-menu" id="mobileMenu">
     <a href="<?= base_url('index.php/pelanggan/home'); ?>">Home</a>
     <a href="<?= base_url('index.php/pelanggan/alat'); ?>">Alat Camping</a>
+    <a href="<?= base_url('index.php/pelanggan/pemesanan/riwayat'); ?>">Pesanan Saya</a>
     <a href="<?= base_url('index.php/pelanggan/logout'); ?>" class="mobile-logout">Logout</a>
 </div>
 
@@ -198,6 +200,7 @@
             <a href="<?= base_url('index.php/pelanggan/home'); ?>">Home</a>
             <a href="<?= base_url('index.php/pelanggan/about'); ?>">About</a>
             <a href="<?= base_url('index.php/pelanggan/alat'); ?>">Alat</a>
+            <a href="<?= base_url('index.php/pelanggan/pemesanan/riwayat'); ?>">Pesanan Saya</a>
         </div>
     </div>
 </footer>

@@ -175,7 +175,7 @@
 
 <?php } else { ?>
 
-<button class="btn-rent">
+<a href="<?= base_url('index.php/pelanggan/alat/detail/' . $a->id_alat); ?>" class="btn-rent" style="text-decoration:none">
     <svg width="16" height="16" viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -186,7 +186,7 @@
     </svg>
 
     Sewa Sekarang
-</button>
+</a>
 
 <?php } ?>
 

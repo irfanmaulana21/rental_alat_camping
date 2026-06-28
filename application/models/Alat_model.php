@@ -35,6 +35,18 @@ public function countTersedia()
             ->row();
     }
 
+    // GET DETAIL + NAMA KATEGORI
+    public function getDetail($id)
+    {
+        return $this->db
+            ->select('alat.*, kategori.nama_kategori')
+            ->from($this->table)
+            ->join('kategori', 'kategori.id_kategori = alat.id_kategori')
+            ->where('alat.id_alat', $id)
+            ->get()
+            ->row();
+    }
+
     // FILTER BY KATEGORI
     public function getByKategori($id_kategori)
     {

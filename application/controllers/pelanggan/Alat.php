@@ -45,6 +45,27 @@ class Alat extends CI_Controller {
         $this->load->view('pelanggan/alat', $data);
     }
 
+    // HALAMAN DETAIL ALAT
+    public function detail($id = null)
+    {
+        if ($id === null) {
+            show_404();
+        }
+
+        $alat = $this->Alat_model->getDetail($id);
+
+        if (!$alat) {
+            show_404();
+        }
+
+        $data = [
+            'alat'     => $alat,
+            'kategori' => $this->Alat_model->getKategori()
+        ];
+
+        $this->load->view('pelanggan/detail', $data);
+    }
+
     //INFINITE SCROLL
     public function load_more($offset = 0)
     {
@@ -75,9 +96,9 @@ class Alat extends CI_Controller {
                         Rp ' . $harga . ' / hari
                     </p>
 
-                    <button class="btn-rent">
+                    <a href="' . base_url('index.php/pelanggan/alat/detail/' . $a->id_alat) . '" class="btn-rent" style="text-decoration:none">
                         SEWA SEKARANG
-                    </button>
+                    </a>
                 </div>
 
             </div>';
