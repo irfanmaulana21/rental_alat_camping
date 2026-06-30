@@ -147,17 +147,58 @@
             </div>
 
             <label class="pay-opt" data-method="QRIS">
-                <input type="radio" name="metode_bayar" value="QRIS" <?= ($m==='QRIS')?'checked':''; ?>>
+                <input type="radio"
+                    name="metode_bayar"
+                    value="QRIS"
+                    <?= ($m=='QRIS') ? 'checked' : ''; ?>>
+
                 <div class="row">
                     <span class="radio"></span>
+
                     <div>
                         <div class="ttl">QRIS</div>
-                        <div class="desc">Bayar lunas di awal via QRIS, upload bukti.</div>
+                        <div class="desc">
+                            Bayar lunas di awal melalui QRIS.
+                        </div>
                     </div>
                 </div>
             </label>
+
             <div class="pay-info" id="info-qris">
-                Scan QRIS lalu bayar <strong>Rp <?= number_format($total, 0, ',', '.'); ?></strong>, simpan struk/screenshot-nya.
+
+                <p style="margin-bottom:15px;">
+                    Scan QRIS berikut untuk melakukan pembayaran sebesar
+                    <strong>
+                        Rp <?= number_format($total,0,',','.'); ?>
+                    </strong>
+                </p>
+
+                <div style="text-align:center;">
+
+                    <img
+                        src="<?= base_url('assets/image/qris/qris.jpeg'); ?>"
+                        alt="QRIS"
+                        style="
+                            width:260px;
+                            max-width:100%;
+                            background:#fff;
+                            border:2px solid #ddd;
+                            border-radius:12px;
+                            padding:10px;
+                            box-shadow:0 8px 20px rgba(0,0,0,.15);
+                        ">
+
+                </div>
+
+                <p style="
+                    margin-top:15px;
+                    color:#666;
+                    font-size:14px;
+                ">
+                    Setelah pembayaran berhasil,
+                    silakan upload bukti pembayaran pada kolom di bawah.
+                </p>
+
             </div>
 
             <!-- UPLOAD BUKTI (muncul cuma kalau bayar online) -->

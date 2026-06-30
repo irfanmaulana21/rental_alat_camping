@@ -21,8 +21,13 @@
 
         <a href="<?= site_url('admin/alat'); ?>">Kelola Alat</a>
 
-        <a href="#">Kelola Pelanggan</a>
-        <a href="#">Transaksi</a>
+        <a href="<?= site_url('admin/pelanggan'); ?>">Kelola Pelanggan</a>
+
+        <div class="menu-title">Transaksi</div>
+        <a href="<?= site_url('admin/transaksi') ?>">Konfirmasi Sewa</a>
+
+        <a href="<?= site_url('admin/transaksi/history') ?>">History Transaksi</a>
+        
         <a href="#">Pembayaran</a>
 
         <a href="javascript:void(0)" onclick="logout('<?= base_url() ?>')">

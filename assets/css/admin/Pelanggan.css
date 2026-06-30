@@ -1,0 +1,87 @@
+body{
+    background:#f4f6f9;
+    font-family:Segoe UI,sans-serif;
+}
+
+header{
+    background:#1f2937;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#22c55e;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:15px;
+    padding:10px 15px;
+}
+
+.active{
+    background:#22c55e;
+    border-radius:8px;
+}
+
+.container{
+    width:95%;
+    margin:30px auto;
+}
+
+.table{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#22c55e;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+.hapus{
+    background:#ef4444;
+    color:white;
+    padding:8px 14px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+footer{
+    margin-top:40px;
+    background:#1f2937;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
