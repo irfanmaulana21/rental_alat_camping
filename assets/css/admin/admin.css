@@ -1,0 +1,474 @@
+/* =========================================================
+   admin.css  —  Stylesheet terpadu untuk semua halaman admin
+   Rental Alat Camping
+   Ganti 7 file CSS lama dengan file ini.
+   ========================================================= */
+
+:root{
+    --dark:#13342a;        /* sidebar */
+    --dark-2:#0f2a22;      /* sidebar hover gelap */
+    --accent:#22c55e;      /* aksen hijau */
+    --accent-d:#16a34a;    /* hijau gelap (hover) */
+    --bg:#f4f6f9;          /* background konten */
+    --card:#ffffff;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --line:#e5e9ee;
+    --radius:10px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'DM Sans',system-ui,Segoe UI,sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* ============ LAYOUT ============ */
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ============ SIDEBAR ============ */
+.sidebar{
+    width:230px;
+    background:var(--dark);
+    padding:18px 14px;
+    display:flex;
+    flex-direction:column;
+    position:sticky;
+    top:0;
+    height:100vh;
+}
+
+.sidebar .brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:0 6px 16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    margin-bottom:14px;
+}
+
+.sidebar .logo{
+    width:38px;
+    height:38px;
+    border-radius:9px;
+    background:var(--accent);
+    color:var(--dark-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:15px;
+}
+
+.sidebar .brand span{
+    color:#fff;
+    font-size:15px;
+    font-weight:500;
+    line-height:1.15;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 13px;
+    margin:3px 0;
+    border-radius:8px;
+    color:#b9c9c0;
+    text-decoration:none;
+    font-size:14px;
+    transition:.2s;
+}
+
+.sidebar a:hover{
+    background:rgba(255,255,255,.06);
+    color:#fff;
+}
+
+.sidebar a.active{
+    background:rgba(34,197,94,.16);
+    color:#4ade80;
+}
+
+.sidebar .menu-title{
+    color:#5f7d70;
+    font-size:10px;
+    letter-spacing:.8px;
+    padding:14px 8px 6px;
+}
+
+.sidebar .logout{
+    margin-top:auto;
+    color:#f9a8a8;
+}
+
+/* ============ MAIN ============ */
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
+
+.topbar{
+    background:var(--card);
+    padding:14px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid var(--line);
+}
+
+.topbar h3{
+    font-size:16px;
+    font-weight:500;
+}
+
+.topbar .user{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    background:var(--dark);
+    color:#fff;
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:12.5px;
+}
+
+.content{
+    padding:22px 24px;
+}
+
+.content h2{
+    font-size:19px;
+    margin-bottom:18px;
+}
+
+/* ============ CARDS ============ */
+.card{
+    background:var(--card);
+    padding:18px;
+    border-radius:var(--radius);
+    margin-bottom:18px;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.card-box{
+    background:var(--card);
+    padding:16px;
+    border-radius:var(--radius);
+    border-left:4px solid var(--accent);
+}
+
+.card-box h4{
+    font-size:13px;
+    color:var(--muted);
+    font-weight:400;
+    margin-bottom:6px;
+}
+
+.card-box h2{
+    font-size:26px;
+    color:var(--dark);
+    margin:0;
+}
+
+/* ============ FLASH ============ */
+.flash-success,.success{
+    background:#dcfce7;color:#166534;
+    padding:13px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;
+}
+.flash-error,.error{
+    background:#fee2e2;color:#b91c1c;
+    padding:13px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;
+}
+
+/* ============ FORM ROW (list + form berdampingan) ============ */
+.flex-row{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+}
+.flex-1{flex:1;min-width:0;}
+
+.form{
+    width:330px;
+    background:var(--card);
+    padding:22px;
+    border-radius:var(--radius);
+}
+.form h4{margin-bottom:14px;font-weight:500;}
+
+label{
+    display:block;
+    margin:12px 0 6px;
+    font-size:13px;
+    font-weight:500;
+    color:#374151;
+}
+
+.input,input[type=text],input[type=number],input[type=date],
+input[type=email],input[type=password],select,textarea{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid #d5dbe1;
+    border-radius:8px;
+    font-size:14px;
+    color:var(--text);
+    background:#fff;
+    outline:none;
+    transition:.2s;
+}
+.input:focus,input:focus,select:focus,textarea:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(34,197,94,.12);
+}
+textarea{height:90px;resize:none;}
+
+.row{display:flex;gap:12px;}
+.row > div{flex:1;}
+
+/* ============ BUTTONS ============ */
+button,.btn{
+    width:100%;
+    padding:11px;
+    border:none;
+    border-radius:8px;
+    background:var(--accent);
+    color:#fff;
+    font-weight:500;
+    font-size:14px;
+    cursor:pointer;
+    margin-top:14px;
+    transition:.2s;
+}
+button:hover,.btn:hover{background:var(--accent-d);}
+
+.btn-back{
+    display:flex;align-items:center;justify-content:center;
+    background:#6b7280;color:#fff;text-decoration:none;
+    padding:11px;border-radius:8px;font-weight:500;font-size:14px;
+}
+.btn-back:hover{background:#4b5563;}
+
+.btn-group,.button-group{display:flex;gap:10px;margin-top:20px;}
+.btn-group > *,.button-group > *{flex:1;}
+
+/* ============ TABLE ============ */
+.table{
+    background:var(--card);
+    padding:18px;
+    border-radius:var(--radius);
+    overflow:auto;
+}
+.table h4{margin-bottom:14px;font-weight:500;}
+
+table{width:100%;border-collapse:collapse;}
+thead th,table tr:first-child th{
+    background:var(--dark);
+    color:#fff;
+    font-weight:500;
+}
+th{padding:12px 14px;text-align:left;font-size:13px;}
+td{padding:12px 14px;border-bottom:1px solid #eef1f4;font-size:13.5px;}
+tbody tr:hover{background:#f9fafb;}
+
+td img{width:64px;height:64px;border-radius:8px;object-fit:cover;}
+
+/* ============ ACTION LINKS ============ */
+.edit,.hapus,.detail{
+    display:inline-block;
+    padding:7px 13px;
+    border-radius:6px;
+    text-decoration:none;
+    color:#fff;
+    font-size:12.5px;
+    margin:2px 3px 2px 0;
+}
+.edit{background:#f59e0b;}
+.hapus{background:#dc2626;}
+.detail{background:var(--accent);}
+
+/* ============ STATUS BADGES ============ */
+.badge{
+    display:inline-block;
+    padding:5px 11px;
+    border-radius:20px;
+    font-size:11.5px;
+    font-weight:500;
+}
+.badge.tersedia,.badge.dikembalikan{background:#dcfce7;color:#166534;}
+.badge.disewa,.badge.disetujui{background:#e0f2fe;color:#075985;}
+.badge.diambil{background:#ccfbf1;color:#0f766e;}
+.badge.menunggu,.badge.menungguverifikasi{background:#fef3c7;color:#b45309;}
+.badge.ditolak,.badge.belum{background:#fee2e2;color:#b91c1c;}
+.badge.telat{background:#fef3c7;color:#b45309;}
+.badge.cod{background:#fef3c7;color:#b45309;}
+.badge.qris,.badge.transferbank{background:#ede9fe;color:#6d28d9;}
+
+/* ============ MODAL (dipakai halaman pengembalian) ============ */
+.modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.5);
+    z-index:50;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+}
+.modal-overlay.show{display:flex;}
+.modal{
+    width:100%;
+    max-width:430px;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+}
+.modal-head{
+    background:var(--dark);
+    color:#fff;
+    padding:14px 18px;
+    font-size:14px;
+    font-weight:500;
+}
+.modal-body{padding:18px;}
+.modal-info{
+    background:var(--bg);
+    border-radius:8px;
+    padding:12px 14px;
+    margin-bottom:16px;
+    font-size:13px;
+}
+.modal-info div{display:flex;justify-content:space-between;padding:2px 0;}
+.modal-info span{color:var(--muted);}
+
+/* ============ FOOTER ============ */
+.footer{
+    margin-top:auto;
+    background:var(--card);
+    padding:14px;
+    text-align:center;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--muted);
+}
+
+/* ============ PREVIEW GAMBAR ============ */
+.preview-box{
+    margin-top:8px;
+    padding:14px;
+    border:1px dashed #cbd5e1;
+    border-radius:10px;
+    text-align:center;
+    background:#fafafa;
+    color:var(--muted);
+    font-size:13px;
+}
+.preview-box img{
+    width:140px;height:140px;object-fit:cover;border-radius:10px;
+}
+
+/* tombol dalam grup jangan kedorong margin-top */
+.btn-group button,.button-group button{margin-top:0;}
+
+/* kartu form yg dipusatkan (halaman edit / tambah) */
+.form-card{
+    background:var(--card);
+    padding:26px;
+    border-radius:var(--radius);
+    max-width:640px;
+}
+.form-card .sub{font-size:13px;color:var(--muted);margin:-6px 0 18px;}
+
+/* ============ KARTU TRANSAKSI ============ */
+.trx-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:16px;
+}
+.trx-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px;
+}
+.trx-card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:10px;
+}
+.trx-card-head .cust{font-weight:600;font-size:15px;}
+.trx-card-head .rid{font-size:12px;color:var(--muted);}
+.trx-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:6px 0;
+    border-bottom:1px solid #f1f4f7;
+    font-size:13px;
+}
+.trx-row:last-of-type{border-bottom:none;}
+.trx-row .k{color:var(--muted);white-space:nowrap;}
+.trx-row .v{text-align:right;}
+.trx-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
+}
+.trx-actions a,.trx-actions button{width:auto;margin:0;}
+.cetak{
+    display:inline-block;
+    padding:7px 13px;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:12.5px;
+    background:#e5e9ee;
+    color:#374151;
+}
+.cetak:hover{background:#d5dbe1;}
+.btn-bukti{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    width:auto;
+    margin:6px 0 0;
+    padding:5px 11px;
+    background:#e0f2fe;
+    color:#075985;
+    border:none;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:500;
+    cursor:pointer;
+}
+.btn-bukti:hover{background:#bae6fd;}
+.btn-bukti i{font-size:14px;}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+    .sidebar{width:64px;}
+    .sidebar .brand span,.sidebar a span,.sidebar .menu-title{display:none;}
+    .sidebar a{justify-content:center;}
+    .flex-row{flex-direction:column;}
+    .form{width:100%;}
+    .card-grid{grid-template-columns:1fr;}
+}
