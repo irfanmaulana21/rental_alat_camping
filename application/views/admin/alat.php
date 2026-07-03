@@ -22,6 +22,7 @@
         <a href="<?= site_url('admin/dashboard'); ?>">Dashboard</a>
         <a class="active" href="<?= site_url('admin/alat'); ?>">Alat</a>
         <a href="<?= site_url('admin/kategori'); ?>">Kategori</a>
+        <a href="<?= site_url('admin/pengembalian'); ?>">Pengembalian</a>
     </nav>
 </header>
 

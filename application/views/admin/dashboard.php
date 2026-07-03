@@ -27,7 +27,9 @@
         <a href="<?= site_url('admin/transaksi') ?>">Konfirmasi Sewa</a>
 
         <a href="<?= site_url('admin/transaksi/history') ?>">History Transaksi</a>
-        
+
+        <a href="<?= site_url('admin/pengembalian') ?>">Pengembalian Alat</a>
+
         <a href="#">Pembayaran</a>
 
         <a href="javascript:void(0)" onclick="logout('<?= base_url() ?>')">

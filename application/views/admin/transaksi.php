@@ -22,6 +22,7 @@
         <a href="<?= site_url('admin/pelanggan')?>">Pelanggan</a>
         <a class="active" href="<?= site_url('admin/transaksi')?>">Konfirmasi Sewa</a>
         <a href="<?= site_url('admin/transaksi/history')?>">History</a>
+        <a href="<?= site_url('admin/pengembalian')?>">Pengembalian</a>
     </nav>
 
 </header>

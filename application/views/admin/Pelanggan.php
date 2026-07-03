@@ -22,6 +22,7 @@
         <a href="<?= site_url('admin/alat'); ?>">Alat</a>
         <a href="<?= site_url('admin/kategori'); ?>">Kategori</a>
         <a class="active" href="<?= site_url('admin/pelanggan'); ?>">Pelanggan</a>
+        <a href="<?= site_url('admin/pengembalian'); ?>">Pengembalian</a>
     </nav>
 
 </header>
