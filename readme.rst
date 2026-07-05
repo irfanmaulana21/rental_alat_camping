@@ -1,5 +1,5 @@
 LOGIN ADMIN
-Username : Admin
+Username : admin
 Password : 1234
 
 ###################
